@@ -3,66 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Category Filter Tabs</title>
-<style>
-  body { font-family: Arial, sans-serif; padding: 20px; }
-  .tabs { margin-bottom: 20px; }
-  .tabs button {
-    padding: 10px 20px;
-    margin-right: 5px;
-    border: none;
-    background-color: #eee;
-    cursor: pointer;
-    border-radius: 5px 5px 0 0;
-    font-weight: bold;
-  }
-  .tabs button.active {
-    background-color: #2196F3;
-    color: white;
-  }
-  .item {
-    display: none;
-    padding: 10px;
-    margin-bottom: 5px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-  }
-</style>
+<title>Category Home</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h2>Choose Category</h2>
-
 <div class="tabs">
-  <button id="btn-movies" onclick="showCategory('movies')">Movies</button>
-  <button id="btn-tv" onclick="showCategory('tv')">TV</button>
-  <button id="btn-sports" onclick="showCategory('sports')">Sports</button>
+  <button onclick="window.open('movies.html', '_blank')">Movies</button>
+  <button onclick="window.open('tv.html', '_blank')">TV</button>
+  <button onclick="window.open('sports.html', '_blank')">Sports</button>
 </div>
-
-<div id="content">
-  <div class="item movies">Avengers: Endgame</div>
-  <div class="item movies">Inception</div>
-  <div class="item tv">Friends</div>
-  <div class="item tv">Breaking Bad</div>
-  <div class="item sports">Cricket Match 2025</div>
-  <div class="item sports">Football Finals</div>
-</div>
-
-<script>
-function showCategory(category) {
-  // Hide all items
-  let items = document.querySelectorAll('#content .item');
-  items.forEach(item => {
-    item.style.display = item.classList.contains(category) ? 'block' : 'none';
-  });
-
-  // Remove active class from all buttons
-  document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
-
-  // Add active class to clicked button
-  document.getElementById('btn-' + category).classList.add('active');
-}
-</script>
 
 </body>
 </html>
