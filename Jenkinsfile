@@ -10,13 +10,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-website .'
+                sh 'sudo podman build -t my-website .'
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 8080:80 --name my-website-container my-website'
+                sh 'sudo podman run -d -p 8081:80 --name my-website-container my-website'
             }
         }
     }
