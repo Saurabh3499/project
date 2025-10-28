@@ -10,10 +10,17 @@
 
 <h2>Choose Category</h2>
 <div class="tabs">
-  <button onclick="window.open('movies.html', '_blank')">Movies</button>
-  <button onclick="window.open('tv.html', '_blank')">TV</button>
-  <button onclick="window.open('sports.html', '_blank')">Sports</button>
+  <button onclick="goCategory('movies')">Movies</button>
+  <button onclick="goCategory('tv')">TV</button>
+  <button onclick="goCategory('sports')">Sports</button>
 </div>
+
+<script>
+function goCategory(category) {
+  // Navigate to category page in the same tab
+  window.location.href = category + '.html';
+}
+</script>
 
 </body>
 </html>
