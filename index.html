@@ -3,19 +3,40 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Category Filter Example</title>
+<title>Category Filter Tabs</title>
 <style>
-  .item { display: none; margin: 5px 0; }
-  button { margin-right: 5px; padding: 5px 10px; cursor: pointer; }
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .tabs { margin-bottom: 20px; }
+  .tabs button {
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+  }
+  .tabs button.active {
+    background-color: #2196F3;
+    color: white;
+  }
+  .item {
+    display: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+  }
 </style>
 </head>
 <body>
 
 <h2>Choose Category</h2>
-<div>
-  <button onclick="showCategory('movies')">Movies</button>
-  <button onclick="showCategory('tv')">TV</button>
-  <button onclick="showCategory('sports')">Sports</button>
+
+<div class="tabs">
+  <button id="btn-movies" onclick="showCategory('movies')">Movies</button>
+  <button id="btn-tv" onclick="showCategory('tv')">TV</button>
+  <button id="btn-sports" onclick="showCategory('sports')">Sports</button>
 </div>
 
 <div id="content">
@@ -29,10 +50,17 @@
 
 <script>
 function showCategory(category) {
+  // Hide all items
   let items = document.querySelectorAll('#content .item');
   items.forEach(item => {
     item.style.display = item.classList.contains(category) ? 'block' : 'none';
   });
+
+  // Remove active class from all buttons
+  document.querySelectorAll('.tabs button').forEach(btn => btn.classList.remove('active'));
+
+  // Add active class to clicked button
+  document.getElementById('btn-' + category).classList.add('active');
 }
 </script>
 
