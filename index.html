@@ -6,14 +6,13 @@
 <title>Category Filter Example</title>
 <style>
   .item { display: none; margin: 5px 0; }
-  button { margin-right: 5px; }
+  button { margin-right: 5px; padding: 5px 10px; cursor: pointer; }
 </style>
 </head>
 <body>
 
 <h2>Choose Category</h2>
 <div>
-  <button onclick="showCategory('all')">All</button>
   <button onclick="showCategory('movies')">Movies</button>
   <button onclick="showCategory('tv')">TV</button>
   <button onclick="showCategory('sports')">Sports</button>
@@ -32,11 +31,9 @@
 function showCategory(category) {
   let items = document.querySelectorAll('#content .item');
   items.forEach(item => {
-    item.style.display = (category === 'all' || item.classList.contains(category)) ? 'block' : 'none';
+    item.style.display = item.classList.contains(category) ? 'block' : 'none';
   });
 }
-// Show all items by default
-showCategory('all');
 </script>
 
 </body>
